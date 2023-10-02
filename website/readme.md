@@ -1,1 +1,1 @@
-Link: [https://vrportfolios.pages.dev/]
+[https://vrportfolios.pages.dev/]
