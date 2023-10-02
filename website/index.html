@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VR Portfolio</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Comic Sans MS, cursive, sans-serif; /* Change font to Comic Sans */
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+        }
+        .title {
+            font-size: 64px; /* Increase title font size to 64 */
+        }
+        .subtitle {
+            font-size: 18px;
+            margin-bottom: 10px; /* Add margin to create space between subtitle and GitHub link */
+        }
+        .github-link {
+            font-size: 16px;
+            text-decoration: none;
+            color: #00f;
+            display: block; /* Change to block to place it under the subtitle */
+        }
+        .github-link:hover {
+            text-decoration: underline;
+        }
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .video {
+            width: 45%;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        iframe {
+            width: 100%;
+            height: 300px;
+        }
+        .video-title {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+        .video-description {
+            font-size: 16px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">Unity Portfolio</div>
+        <div class="subtitle">By Ethan Bowmar</div>
+        <a href="https://github.com/ethan4524/VRportfolios" class="github-link">GitHub Repository</a> <!-- Replace with your GitHub repo link -->
+    </div>
+    <div class="video-container">
+        <!-- Video 1 -->
+        <div class="video">
+            <iframe src="https://www.youtube.com/embed/JI4zkP4t3rg"></iframe>
+            <div class="video-title">Portfolio #1: Physics Materials - Bounce Demonstration
+            </div>
+            <div class="video-description">This is a demonstration featuring how a RigidBody interacts with physics materials with varying bounciness.</div>
+        </div>
+        <!-- Video 2 -->
+        <div class="video">
+            <iframe src="https://www.youtube.com/embed/GC6aRuxti5M"></iframe>
+            <div class="video-title">Portfolio #2: Render Textures with multiple cameras</div>
+            <div class="video-description">In this video, I showcase a simple implementation of a reader texture and two cameras. This could be used to implement a "security camera" type game.</div>
+        </div>
+        <!-- Video 3 -->
+        <div class="video">
+            <iframe src="https://www.youtube.com/embed/DBFKZKDpHG0"></iframe>
+            <div class="video-title">Portfolio #3: Projectile Instantiation and Color</div>
+            <div class="video-description">In this video, I go over how prefab instantiation works. I also showcase a simple script that changes the color of an object after being hit by a projectile. </div>
+        </div>
+        <!-- Video 4 -->
+        <div class="video">
+            <iframe src="https://www.youtube.com/embed/cQI7lCyuHsg"></iframe>
+            <div class="video-title">Portfolio #4: Character Controller Teleporter with Layer Mask and Projectile</div>
+            <div class="video-description">In this video, I cover a technique to transform the player's location when a character controller is attached to the game object. This script allows us to shoot a projectile and teleport to the hit location (assuming it's on the specified layer mask). </div>
+        </div>
+    </div>
+</body>
+</html>
