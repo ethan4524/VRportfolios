@@ -1,8 +1,5 @@
-# portfolio-ethan4524
-link to portfolios repo: https://github.com/ethan4524/VRportfolios <br>
-link to website: https://vrportfolios.pages.dev/  <br>
-
-I had some trouble connecting the website to this class repo so I moved my content to my personal. Please see the links above and let me know if you have any questions. Thanks!
+# Welcome to Ethan Bowmar's VR Class Portfolio!
+Link back to class repo: https://github.com/csci48306830fa23/portfolio-ethan4524
 
 # Ethan Bowmar's VR Portfolio
 
