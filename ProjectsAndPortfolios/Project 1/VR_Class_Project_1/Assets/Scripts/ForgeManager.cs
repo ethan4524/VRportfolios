@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.ParticleSystemJobs;
+using Unity.VisualScripting;
 
 public class ForgeManager : MonoBehaviour
 {
@@ -18,13 +19,14 @@ public class ForgeManager : MonoBehaviour
     [Header("Bucket Sockets:")]
     public XRSocketInteractor bucketSocket;
 
-    [Header("Cast Sockets:")]
-    public XRSocketInteractor castSocket;
-
     [Header("Lever Socket")]
     public XRSocketInteractor leverSocket;
 
     public GameObject flames;
+    public Transform fireSpawn;
+    public GameObject InteractableLever;
+    public Transform LeverSpawnPoint;
+    private GameObject spawnedLever = null;
 
     [Header("Debug Checks")]
     [SerializeField]
@@ -34,11 +36,38 @@ public class ForgeManager : MonoBehaviour
     [SerializeField]
     private bool bucketFilled = false;
     [SerializeField]
-    private bool castFilled = false;
-    [SerializeField]
     private bool leverInPlace = false;
 
+    bool canCheckLeverValue = false;
+    bool forgeReady = false;
 
+    int metalCount = 0;
+
+    public void Update()
+    {
+        //check each of the sockets...
+        
+        FuelSocketCheck();
+        MetalCheck();
+        BucketSocketCheck();
+        LeverSocketCheck();
+        forgeReady = (metalFilled & fuelFilled & bucketFilled & leverInPlace);
+        
+        if (forgeReady)
+        {
+            Debug.Log("FORGE IS READY TO BE LIT");
+            if (canCheckLeverValue)
+            {
+                float leverAngle = spawnedLever.GetComponent<LeverLogic>().GetLeverValue();
+                //Debug.Log("Lever Value is: " + leverAngle);
+                if (leverAngle > 70f)
+                {
+                    Debug.Log("LEVER ACTIVATED");
+                    StartForge();
+                }
+            }
+        }
+    }
 
     private void Start()
     {
@@ -46,33 +75,39 @@ public class ForgeManager : MonoBehaviour
             flames.SetActive(false);
     }
 
-
-    public bool GetIsFilled()
+    public void StartForge()
     {
-        return metalFilled;
+        //Instantiate(flames, fireSpawn.position, fireSpawn.rotation);
+        flames.SetActive(true);
     }
 
-    public void MetalSocketCheck()
+    public bool GetForgeIsReady()
     {
-        IXRSelectInteractable socketObject1 = metalSocket1.GetOldestInteractableSelected();
-        IXRSelectInteractable socketObject2 = metalSocket3.GetOldestInteractableSelected();
-        IXRSelectInteractable socketObject3 = metalSocket3.GetOldestInteractableSelected();
-        if (socketObject1 != null)
-        {
-            Debug.Log("Something inside socket 1");
-        }
-        if (socketObject2 != null)
-        {
-            Debug.Log("Something inside socket 2");
-        }
-        if (socketObject3 != null)
-        {
-            Debug.Log("Something inside socket 3");
-        }
-        if (socketObject1 != null && socketObject2 != null && socketObject3 != null)
+        return forgeReady;
+    }
+
+    public void MetalCheck()
+    {
+        if (metalCount == 3)
         {
             metalFilled = true;
+            Debug.Log("Metal is full!!");
+        } else
+        {
+            metalFilled = false;
+            Debug.Log("Metal is at " + metalCount);
         }
+        
+        
+    }
+
+    public void AddMetal()
+    {
+        metalCount++;
+    }
+    public void RemoveMetal()
+    {
+        metalCount--;
     }
 
     public void FuelSocketCheck()
@@ -82,7 +117,15 @@ public class ForgeManager : MonoBehaviour
         {
             Debug.Log("Something inside fuel socket");
         }
-        fuelFilled = fuelSocket != null;
+        
+        if (socketObject1 != null)
+        {
+            fuelFilled = true;
+        }
+        else
+        {
+            fuelFilled = false;
+        }
     }
 
     public void BucketSocketCheck()
@@ -92,26 +135,45 @@ public class ForgeManager : MonoBehaviour
         {
             Debug.Log("Something inside bucket socket");
         }
-        bucketFilled = bucketSocket != null;
-    }
-
-    public void CastSocketCheck()
-    {
-        IXRSelectInteractable socketObject1 = castSocket.GetOldestInteractableSelected();
+        
         if (socketObject1 != null)
         {
-            Debug.Log("Something inside cast socket");
+            bucketFilled = true;
         }
-        castFilled = castSocket != null;
+        else
+        {
+            bucketFilled = false;
+        }
     }
-
     public void LeverSocketCheck()
     {
-        IXRSelectInteractable socketObject1 = leverSocket.GetOldestInteractableSelected();
-        if (socketObject1 != null)
+        if (leverInPlace == false)
         {
-            Debug.Log("Something inside lever socket");
-        }
-        leverInPlace = leverSocket != null;
+            IXRSelectInteractable socketObject1 = leverSocket.GetOldestInteractableSelected();
+            if (socketObject1 != null)
+            {
+                Debug.Log("Something inside lever socket");
+            }
+            if (socketObject1 != null)
+            {
+                leverInPlace = true;
+                Destroy(leverSocket.GetOldestInteractableSelected().transform.gameObject);
+                CreateLever();
+                return;
+            }
+            else
+            {
+                leverInPlace = false;
+            }
+        } 
+        
+    }
+
+    public void CreateLever()
+    {
+        leverInPlace = true;
+        
+        spawnedLever = Instantiate(InteractableLever, LeverSpawnPoint.position, LeverSpawnPoint.rotation);
+        canCheckLeverValue = true;
     }
 }

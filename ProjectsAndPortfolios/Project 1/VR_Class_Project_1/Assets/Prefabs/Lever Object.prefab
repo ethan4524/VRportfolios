@@ -412,7 +412,6 @@ GameObject:
   - component: {fileID: 3733434248243747343}
   - component: {fileID: 6668205025231484738}
   - component: {fileID: 5184318473327645756}
-  - component: {fileID: 4116971829616409091}
   m_Layer: 0
   m_Name: Lever Object
   m_TagString: Untagged
@@ -634,18 +633,6 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &4116971829616409091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3387337003837930537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59db236556f281448a852822ecf66138, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3887642673587096710
 GameObject:
   m_ObjectHideFlags: 0

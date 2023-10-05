@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class LeverLogic : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public HingeJoint joint;
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        Debug.Log(joint.limits.min + " " + joint.limits.max);
+    }
+    public float GetLeverValue()
+    {
+        return joint.angle;
     }
 }
