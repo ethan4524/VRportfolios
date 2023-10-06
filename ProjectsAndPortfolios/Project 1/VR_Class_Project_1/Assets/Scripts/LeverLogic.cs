@@ -8,7 +8,7 @@ public class LeverLogic : MonoBehaviour
 
     public void Update()
     {
-        Debug.Log(joint.limits.min + " " + joint.limits.max);
+        //Debug.Log(joint.limits.min + " " + joint.limits.max);
     }
     public float GetLeverValue()
     {
