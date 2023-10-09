@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SpawnGate : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class SpawnGate : MonoBehaviour
     public float duration = 2.0f;
     bool open;
     float increment;
+    public AudioSource source;
 
     private void Start()
     {
@@ -27,10 +29,12 @@ public class SpawnGate : MonoBehaviour
     public void OpenGate()
     {
         open = true;
+        source.Play();
     }
     public void CloseGate()
     {
         open = false;
+        source.Play();
     }
     private void FixedUpdate()
     {

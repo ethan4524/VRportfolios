@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEditor.SearchService;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +20,7 @@ public class GameManager : MonoBehaviour
     public GameObject swordObject;
     public GameObject WinMessage;
     bool swordInSlot = false;
+    public ForgeManager forgeManager;
 
     private void Start()
     {
@@ -108,13 +111,16 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        StartGame();
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
+        //StartGame();
     }
     public void ResetTask()
     {
         WinMessage.SetActive(false);
         swordObject = null;
         gate.Reset();
+        forgeManager.Reset();
         RemoveSpawnedObjects();      
         RemoveSword();
         cast.Reset();

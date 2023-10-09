@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.ParticleSystemJobs;
 using Unity.VisualScripting;
+using UnityEngine.Audio;
 
 public class ForgeManager : MonoBehaviour
 {
@@ -33,6 +34,8 @@ public class ForgeManager : MonoBehaviour
     GameObject metal1, metal2, metal3, coal;
     public GameManager gameManager;
     public GameObject spawnedObjects;
+
+    public AudioSource soundSource;
 
 
     [Header("Debug Checks")]
@@ -65,13 +68,17 @@ public class ForgeManager : MonoBehaviour
             //Debug.Log("FORGE IS READY TO BE LIT");
             if (canCheckLeverValue)
             {
-                float leverAngle = spawnedLever.GetComponent<LeverLogic>().GetLeverValue();
-                //Debug.Log("Lever Value is: " + leverAngle);
-                if (leverAngle > 70f)
+                if (spawnedLever != null)
                 {
-                    //Debug.Log("LEVER ACTIVATED");
-                    StartForge();
+                    float leverAngle = spawnedLever.GetComponent<LeverLogic>().GetLeverValue();
+                    //Debug.Log("Lever Value is: " + leverAngle);
+                    if (leverAngle > 70f)
+                    {
+                        //Debug.Log("LEVER ACTIVATED");
+                        StartForge();
+                    }
                 }
+                
             }
         }
     }
@@ -89,6 +96,7 @@ public class ForgeManager : MonoBehaviour
         forgeDrain.GetComponent<DrainSpawner>().EnableSpawning();
         if (bucketObject != null)
         {
+            soundSource.Play();
             bucketObject.GetComponent<BucketLogic>().StartEffect();
             Invoke("DisableForge", 10.0f);
         }
@@ -215,13 +223,10 @@ public class ForgeManager : MonoBehaviour
     }
     public void LeverSocketCheck()
     {
-        if (leverInPlace == false)
-        {
+        Debug.Log(leverSocket.GetOldestInteractableSelected());
+        //if (leverInPlace == false)
+        //{
             IXRSelectInteractable socketObject1 = leverSocket.GetOldestInteractableSelected();
-            if (socketObject1 != null)
-            {
-               // Debug.Log("Something inside lever socket");
-            }
             if (socketObject1 != null)
             {
                 leverInPlace = true;
@@ -231,9 +236,9 @@ public class ForgeManager : MonoBehaviour
             }
             else
             {
-                leverInPlace = false;
+                //leverInPlace = false;
             }
-        } 
+        //} 
         
     }
 
@@ -248,9 +253,40 @@ public class ForgeManager : MonoBehaviour
 
     public void Reset()
     {
-        Destroy(spawnedLever);
+        Purge();
+        DestroyIfThere(spawnedLever);
+        //Destroy(leverSocket.GetOldestInteractableSelected().transform.gameObject);
+        //DestroyIfThere(bucketSocket.GetOldestInteractableSelected().transform.gameObject);
+        //DestroyIfThere(metalSocket1.GetOldestInteractableSelected().transform.gameObject);
+        //DestroyIfThere(metalSocket2.GetOldestInteractableSelected().transform.gameObject);
+        //DestroyIfThere(metalSocket3.GetOldestInteractableSelected().transform.gameObject);
+        metal1 = null;
+        metal2 = null;
+        metal3 = null;
+        //DestroyIfThere(fuelSocket.GetOldestInteractableSelected().transform.gameObject);
+        
         leverInPlace = false;
         metalCount = 0;
         spawnedLever = null;
+        canCheckLeverValue = false;
+        forgeReady = false;
+    }
+
+    public void Purge()
+    {
+        foreach (XRGrabInteractable interactable in FindObjectsOfType<XRGrabInteractable>())
+        {
+            Debug.Log("Purging " + interactable.gameObject.name);
+            Destroy(interactable.gameObject);
+        }
+        
+    }
+
+    public void DestroyIfThere(GameObject _object)
+    {
+        if (_object != null)
+        {
+            Destroy(_object);
+        }
     }
 }

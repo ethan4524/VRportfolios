@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Bridge : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class Bridge : MonoBehaviour
     private Quaternion startRotation;
     private Quaternion endRotation;
     private bool isRotating = false;
+
+    public AudioSource soundSource;
 
     private void Start()
     {
@@ -46,6 +49,7 @@ public class Bridge : MonoBehaviour
         endRotation = Quaternion.Euler(90f, 0f, 0f); // Rotate to 90 degrees on the X-axis.
         elapsedTime = 0.0f; // Reset elapsed time.
         isRotating = true;
+        soundSource.Play();
     }
 
     public void StartRotationTo0()
@@ -55,5 +59,6 @@ public class Bridge : MonoBehaviour
         endRotation = Quaternion.Euler(0f, 0f, 0f); // Rotate to 0 degrees on the X-axis.
         elapsedTime = 0.0f; // Reset elapsed time.
         isRotating = true;
+        soundSource.Play();
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class MoveObject : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class MoveObject : MonoBehaviour
     private float elapsedTime = 0.0f;
     private Vector3 startPosition;
     private Vector3 endPosition;
+
+    public AudioSource soundSource;
 
     private void Start()
     {
@@ -50,6 +53,7 @@ public class MoveObject : MonoBehaviour
     {
         isMovingToB = true;
         elapsedTime = 0.0f;
+        soundSource.Play();
     }
 
     // Function to start moving from point B to point A.
@@ -58,6 +62,7 @@ public class MoveObject : MonoBehaviour
         isMovingToB = false;
         SwapPositions();
         elapsedTime = 0.0f;
+        soundSource.Play();
     }
 
     // Swap the start and end positions for the opposite movement.
