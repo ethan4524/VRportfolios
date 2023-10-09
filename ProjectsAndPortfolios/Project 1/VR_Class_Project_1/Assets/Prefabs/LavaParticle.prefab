@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2827486709621016994}
   - component: {fileID: 3155170604693809368}
   - component: {fileID: 7155080150860418862}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LavaParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

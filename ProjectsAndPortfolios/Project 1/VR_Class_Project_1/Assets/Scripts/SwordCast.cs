@@ -12,21 +12,30 @@ public class SwordCast : MonoBehaviour
     public Transform spawnLocation;
     bool isSpawned = false;
 
+    public GameManager gameManager;
+    
     public void AddLava()
     {
         numberOfLavasAdded++;
         if (numberOfLavasAdded >= 100 && isSpawned == false)
         {
-            isSpawned = true;
-            Instantiate(swordPrefab, spawnLocation.position, spawnLocation.rotation);
-            
+            SpawnSword();
         }
     }
 
-    private void Start()
+    public void SpawnSword()
     {
-        Instantiate(swordPrefab, spawnLocation.position, spawnLocation.rotation);
-        Destroy(gameObject);
+        isSpawned = true;
+        GameObject newSword = Instantiate(swordPrefab, spawnLocation.position, spawnLocation.rotation);
+        newSword.gameObject.transform.parent = gameManager.transform;
+        gameManager.SetSword(newSword);
+    }
+
+    public void Reset()
+    {
+        numberOfLavasAdded = 0;
+        isSpawned = false;
+
     }
 
 }

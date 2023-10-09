@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7832274412654968813}
   - component: {fileID: -3032835323599173396}
   - component: {fileID: -5567278860627662226}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Bucket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -466,7 +466,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5481721817689212262}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PointA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -497,7 +497,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8240926127663784587}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PointB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -528,7 +528,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4106226695694532297}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -559,7 +559,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7935368487245410443}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LavaParticleSpawnerBucket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -593,7 +593,7 @@ GameObject:
   - component: {fileID: 4162801796917005506}
   - component: {fileID: 1344309670434670291}
   - component: {fileID: 5063733064815379698}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: VisualEffect
   m_TagString: LavaZone
   m_Icon: {fileID: 0}

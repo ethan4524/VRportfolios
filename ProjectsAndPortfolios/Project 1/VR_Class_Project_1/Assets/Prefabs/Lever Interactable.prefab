@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2800049591179231237}
   - component: {fileID: 849707231225245312}
   - component: {fileID: 7553648364987691357}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: c5ba37ae50d469c42b2fffe0def1be99, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 3462943744057495917}
   - component: {fileID: 5084984653575358335}
   - component: {fileID: 1883609854978488638}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Rod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 66c72a247ee08834ba65d51bbffadb83, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 8861881948638418114}
   - component: {fileID: 7049069659838395840}
   - component: {fileID: 2931650188819168643}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 1bec694ee18029741bf006bd59eb6634, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 6521217000662366413}
   - component: {fileID: 248513457360814550}
   - component: {fileID: 7033945980046697975}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Lever Interactable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 1328995189000753924}
   - component: {fileID: 7594417330351879832}
   - component: {fileID: 3282758926604126879}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Handle(Grab)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 1bec694ee18029741bf006bd59eb6634, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -482,7 +482,7 @@ GameObject:
   - component: {fileID: 4802653290901923788}
   - component: {fileID: 1383161479301246768}
   - component: {fileID: 8145805712146862409}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Lever
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -9,6 +9,8 @@ public class ObjectSpawner : MonoBehaviour
     Transform spawnPoint;
     GameObject mySpawnedObject = null;
 
+    public GameObject spawnedObjectsParent;
+
     private void OnEnable()
     {
         spawnPoint = this.gameObject.GetNamedChild("Object Spawn").transform;
@@ -18,13 +20,23 @@ public class ObjectSpawner : MonoBehaviour
     public void SpawnObject()
     {
         mySpawnedObject = Instantiate(objectToSpawn, spawnPoint.position, spawnPoint.rotation);
+        mySpawnedObject.transform.parent = spawnedObjectsParent.transform;
     }
 
     public void ResetSpawn()
-    {   if (mySpawnedObject != null)
+    {   
+        if (mySpawnedObject != null)
         {
-            Destroy(objectToSpawn);
+            Destroy(mySpawnedObject);
         }
         SpawnObject();
+    }
+
+    public void Reset()
+    {
+        if (mySpawnedObject != null)
+        {
+            Destroy(mySpawnedObject);
+        }
     }
 }

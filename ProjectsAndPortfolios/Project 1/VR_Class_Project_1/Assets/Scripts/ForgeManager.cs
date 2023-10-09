@@ -31,6 +31,8 @@ public class ForgeManager : MonoBehaviour
     public GameObject forgeDrain;
     private GameObject bucketObject;
     GameObject metal1, metal2, metal3, coal;
+    public GameManager gameManager;
+    public GameObject spawnedObjects;
 
 
     [Header("Debug Checks")]
@@ -240,6 +242,15 @@ public class ForgeManager : MonoBehaviour
         leverInPlace = true;
         
         spawnedLever = Instantiate(InteractableLever, LeverSpawnPoint.position, LeverSpawnPoint.rotation);
+        spawnedLever.transform.parent = spawnedObjects.transform;
         canCheckLeverValue = true;
+    }
+
+    public void Reset()
+    {
+        Destroy(spawnedLever);
+        leverInPlace = false;
+        metalCount = 0;
+        spawnedLever = null;
     }
 }
