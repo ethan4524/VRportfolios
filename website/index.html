@@ -6,64 +6,61 @@
     <title>VR Portfolio</title>
     <style>
         body {
-            background-color: #000;
-            color: #fff;
-            font-family: Comic Sans MS, cursive, sans-serif; /* Change font to Comic Sans */
+            background-color: #000; /* Set background color to black */
+            color: #fff; /* Set text color to white */
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* Set font to Comic Sans */
             margin: 0;
             padding: 0;
         }
+
         .header {
             text-align: center;
             padding: 20px;
+            font-size: 28px;
         }
-        .title {
-            font-size: 64px; /* Increase title font size to 64 */
-        }
-        .subtitle {
-            font-size: 18px;
-            margin-bottom: 10px; /* Add margin to create space between subtitle and GitHub link */
-        }
-        .github-link {
-            font-size: 16px;
-            text-decoration: none;
-            color: #00f;
-            display: block; /* Change to block to place it under the subtitle */
-        }
-        .github-link:hover {
-            text-decoration: underline;
-        }
+
+        /* Additions for centering video groups */
         .video-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
+            justify-content: center; /* Center content horizontally */
             padding: 20px;
         }
+
+        .video-header {
+            text-align: center;
+            padding: 40px;
+            font-size: 40px;
+            color: #ff0000;
+        }
+
+        .video-group {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 48%; /* Set the width to match other videos */
+            margin-bottom: 40px; /* Adjust margin as needed */
+        }
+
         .video {
-            width: 36%;
+            width: 100%; /* Set video width to fill its container */
             margin-bottom: 20px;
             text-align: center;
         }
-        .video_single-container {
-            flex-basis: 100%; /* Full width for single videos */
-            margin-bottom: 10px;
-            padding: 20px;
-        }
-        .video_single {
-            width: 48%; /* Width similar to two videos on a row */
-            margin: 0 auto; /* Center the video horizontally */
-            margin-bottom: 30px;
-            text-align: center;
-        }
+
         iframe {
             width: 100%;
             height: 300px;
         }
+
         .video-title {
-            font-size: 24px;
+            font-size: 18px;
             margin-top: 10px;
         }
+
         .video-description {
-            font-size: 16px;
+            font-size: 14px;
             margin-top: 5px;
         }
     </style>
@@ -72,80 +69,104 @@
     <div class="header">
         <div class="title">Unity Portfolio</div>
         <div class="subtitle">By Ethan Bowmar</div>
-        <a href="https://github.com/ethan4524/VRportfolios" class="github-link">LINK: GitHub Repository</a> <!-- Replace with your GitHub repo link -->
-        <div class="subtitle">Updated 11/3/2023</div>
+        <a href="https://github.com/ethan4524/VRportfolios" class="github-link">LINK: GitHub Repository</a>
+        <div class="subtitle">Updated 12/12/2023</div>
     </div>
-    
+
     <div class="video-container">
-        <!-- Video 1 -->
-        <div class="video">
-            <iframe src="https://www.youtube.com/embed/JI4zkP4t3rg"></iframe>
-            <div class="video-title">Portfolio #1: Physics Materials - Bounce Demonstration
+        <div class="video-group">
+            <div class="video-header">Project Demonstrations</div>
+
+            <!-- Video 5 - Project 1: VR Maze Forge -->
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/3QdTbENyJ6w"></iframe>
+                <div class="video-title">Project #1: VR Maze Forge</div>
+                <div class="video-description">In this video, I provide a walkthrough of project 1 - The Maze Forge. Maze Forge features an interactive maze escape puzzel that requires the user to forge a sword in order to escape the maze. </div>
             </div>
-            <div class="video-description">This is a demonstration featuring how a RigidBody interacts with physics materials with varying bounciness.</div>
+
+            <!-- Video 2: New Project -->
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/0xnruAB2EFg"></iframe>
+                <div class="video-title">Project #2: The Deep Dark</div>
+                <div class="video-description">I provide a walkthrough/demo of The Deep Dark in this video. The Deep Dark is a multiplayer VR game I created using Unity. Players are astronaut robots tasked with maintaining and repairing a spaceship during an asteroid ambush. Players must work together to charge the reactor's power cell and deliver it to the reactor to escape. The game features realistic object-weight interaction, an immersive sci-fi-atmosphere, and voice-driven commands to interact with the environment. 
+
+                </div>
+            </div>
         </div>
-        <!-- Video 2 -->
-        <div class="video">
-            <iframe src="https://www.youtube.com/embed/GC6aRuxti5M"></iframe>
-            <div class="video-title">Portfolio #2: Render Textures with multiple cameras</div>
-            <div class="video-description">In this video, I showcase a simple implementation of a reader texture and two cameras. This could be used to implement a "security camera" type game.</div>
+
+        <div class="video-group">
+            <div class="video-header">Portfolio Tutorials</div>
+
+            <!-- Video 1: Portfolio #1: Physics Materials - Bounce Demonstration -->
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/JI4zkP4t3rg"></iframe>
+                <div class="video-title">Portfolio #1: Physics Materials - Bounce Demonstration</div>
+                <div class="video-description">This is a demonstration featuring how a RigidBody interacts with physics materials with varying bounciness.</div>
+            </div>
+
+            <!-- Video 2: Portfolio #2: Render Textures with multiple cameras -->
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/GC6aRuxti5M"></iframe>
+                <div class="video-title">Portfolio #2: Render Textures with multiple cameras</div>
+                <div class="video-description">In this video, I showcase a simple implementation of a reader texture and two cameras.</div>
+            </div>
+
+            <!-- Video 3: Portfolio #3: Projectile Instantiation and Color -->
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/DBFKZKDpHG0"></iframe>
+                <div class="video-title">Portfolio #3: Projectile Instantiation and Color</div>
+                <div class="video-description">In this video, I go over how prefab instantiation works. I also showcase a simple script that changes the color of an object after being hit by a projectile.</div>
+            </div>
+
+            <!-- Video 4: Portfolio #4: Character Controller Teleporter with Layer Mask and Projectile -->
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/cQI7lCyuHsg"></iframe>
+                <div class="video-title">Portfolio #4: Character Controller Teleporter with Layer Mask and Projectile</div>
+                <div class="video-description">In this video, I cover a technique to transform the player's location when a character controller is attached to the game object.</div>
+            </div>
+
+            <!-- Video 6: Portflio #5: ScreenPointToRay Demonstration -->
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/kyXq-DCWQsA"></iframe>
+                <div class="video-title">Portfolio #5: ScreenPointToRay Demonstration</div>
+                <div class="video-description">This is a very simple demo and overview of the function "ScreenPointToRay" as well as a demo application.</div>
+            </div>
+
+            <!-- Video 7: Portfolio #6: Raycast -->
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/jEdBWOiWvEE"></iframe>
+                <div class="video-title">Portfolio #6: Raycast</div>
+                <div class="video-description">This video covers a simple demo and an explanation of Raycast in Unity.</div>
+            </div>
+
+            <!-- Video 8: Portfolio #7: Raycast Point and Destroy Function in Unity -->
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/5Ky0iBuyQEc"></iframe>
+                <div class="video-title">Portfolio #7: Raycast Point and Destroy Function in Unity</div>
+                <div class="video-description">This video covers another useful function of Raycast and a brief overview of the Destroy function in Unity.</div>
+            </div>
+
+            <!-- Video 9: Portfolio #8: Shader Graph and Project Profiler -->
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/lHL7z_CHtT0"></iframe>
+                <div class="video-title">Portfolio #8: Shader Graph and Project Profiler</div>
+                <div class="video-description">This video covers a brief introduction to shader graphs in Unity.</div>
+            </div>
+
+            <!-- Video 10: Portfolio #9 VR Lever -->
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/aIP8EE1P6ko"></iframe>
+                <div class="video-title">Portfolio #9 VR Lever</div>
+                <div class="video-description">This video covers XR Direct Interactable and the hinge joint component to create a lever in VR!</div>
+            </div>
+
+            <!-- Video 11: Portfolio #10 VR Sockets -->
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/aAKi_ZCmtoI"></iframe>
+                <div class="video-title">Portfolio #10 VR Sockets</div>
+                <div class="video-description">This video covers a short demo on creating sockets for VR interactions as well as a quick demo of Interaction layer masks.</div>
+            </div>
         </div>
-        <!-- Video 3 -->
-        <div class="video">
-            <iframe src="https://www.youtube.com/embed/DBFKZKDpHG0"></iframe>
-            <div class="video-title">Portfolio #3: Projectile Instantiation and Color</div>
-            <div class="video-description">In this video, I go over how prefab instantiation works. I also showcase a simple script that changes the color of an object after being hit by a projectile. </div>
-        </div>
-        <!-- Video 4 -->
-        <div class="video">
-            <iframe src="https://www.youtube.com/embed/cQI7lCyuHsg"></iframe>
-            <div class="video-title">Portfolio #4: Character Controller Teleporter with Layer Mask and Projectile</div>
-            <div class="video-description">In this video, I cover a technique to transform the player's location when a character controller is attached to the game object. This script allows us to shoot a projectile and teleport to the hit location (assuming it's on the specified layer mask). </div>
-        </div>
-        <!-- Video 5 - Project 1 -->
-        <div class="video">
-            <iframe src="https://www.youtube.com/embed/3QdTbENyJ6w"></iframe>
-            <div class="video-title">Project #1: VR Maze Forge</div>
-            <div class="video-description">In this video I provide a walthrough of project 1 - The Maze Forge. </div>
-        </div>
-        
-        <!-- Video 6 -->
-        <div class="video">
-            <iframe src="https://www.youtube.com/embed/kyXq-DCWQsA"></iframe>
-            <div class="video-title">Portflio #5: ScreenPointToRay Demonstration</div>
-            <div class="video-description">This is a very simple demo and overview of the function "ScreenPointToRay" as well as a demo application.</div>
-        </div>
-        <!-- Video 7 -->
-        <div class="video">
-            <iframe src="https://www.youtube.com/embed/jEdBWOiWvEE"></iframe>
-            <div class="video-title">Portfolio #6: Raycast</div>
-            <div class="video-description">This video covers a simple demo and an explanation of Raycast in Unity.</div>
-        </div>
-        <!-- Video 8 -->
-        <div class="video">
-            <iframe src="https://www.youtube.com/embed/5Ky0iBuyQEc"></iframe>
-            <div class="video-title">Portfolio #7: Raycast Point and Destroy Function in Unity</div>
-            <div class="video-description">This video covers another useful function of Raycast and a brief overview of the Destroy function in Unity.</div>
-        </div>
-        <!-- Video 9 -->
-        <div class="video">
-            <iframe src="https://www.youtube.com/embed/lHL7z_CHtT0"></iframe>
-            <div class="video-title">Portfolio #8: Shader Graph and Project Profiler</div>
-            <div class="video-description">This video covers a brief introduction to shader graphs in Unity as well as a tool to debug and optimize shaders for applications.</div>
-        </div>
-        <!-- Video 10 -->
-        <div class="video">
-            <iframe src="https://www.youtube.com/embed/aIP8EE1P6ko"></iframe>
-            <div class="video-title">Portfolio #9 VR Lever</div>
-            <div class="video-description">This video covers XR Direct Interactable and the hinge joint component to create a lever in VR!</div>
-        </div>
-        <!-- Video 11 -->
-        <div class="video">
-            <iframe src="https://www.youtube.com/embed/aAKi_ZCmtoI"></iframe>
-            <div class="video-title">Portfolio #10 VR Sockets</div>
-            <div class="video-description">This video covers a short demo on creating sockets for VR interactions as well as a quick demo of Interaction layer masks.</div>
-        </div>
-            <!-- Video 12 -->
     </div>
 </body>
 </html>
